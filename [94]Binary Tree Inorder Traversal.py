@@ -33,7 +33,7 @@
 # 
 #  
 # Follow up: Recursive solution is trivial, could you do it iteratively? 
-# Related Topics Stack Tree Depth-First Search Binary Tree 👍 7612 👎 351
+# Related Topics Stack Tree Depth-First Search Binary Tree 👍 7698 👎 357
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -45,20 +45,5 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        stack = [0]
-        if not root:
-            return []
-        inorder=[]
-        stack.append(root)
-        while stack:
-            node = stack.pop()
-            if node == -1:
-                node = stack.pop()
-                inorder.append(node.val)
-                stack.append(node.right)
-            elif node:
-                stack.append(node)
-                stack.append(-1)
-                stack.append(node.left)
-        return inorder
+        
 # leetcode submit region end(Prohibit modification and deletion)

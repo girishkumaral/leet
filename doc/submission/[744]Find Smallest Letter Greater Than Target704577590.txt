@@ -1,0 +1,12 @@
+import bisect
+
+
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        return letters[bisect.bisect_left(letters, target)]
+
+# total_testcases:165
+# total_correct:3
+# input_formatted:"[\"c\",\"f\",\"j\"],\"c\""
+# expected_output:"f"
+# code_output:"c"

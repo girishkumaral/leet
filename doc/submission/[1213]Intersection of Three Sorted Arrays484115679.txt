@@ -1,0 +1,32 @@
+class Solution:
+    def arraysIntersection(self, arr1: List[int], arr2: List[int], arr3: List[int]) -> List[int]:
+        
+        i = 0
+        j = 0
+        k = 0
+        res=[]
+        
+        while i < len(arr1) and j < len(arr2) and k < len(arr2):
+            if arr1[i] < arr2[j] <= arr3[k]:
+                i+=1
+            elif arr2[j] < arr1[i] <= arr3[k]:
+                j+=1
+            elif arr3[k] < arr1[i] <= arr2[j]:
+                k+=1
+            elif (arr1[i] <= arr2[j] < arr3[k]) or (arr2[j] <= arr1[i] < arr3[k]):
+                i+=1
+                j+=1
+            elif (arr2[j] <= arr3[k] < arr1[i]) or (arr3[k] <= arr2[j] < arr1[i]):
+                j+=1
+                k+=1
+            elif (arr3[k] <= arr1[i] < arr2[j]) or (arr1[i] <= arr3[k] < arr2[j]):
+                i+=1
+                k+=1
+            else:                
+                res.append(arr3[k])
+                i+=1
+                j+=1
+                k+=1
+        return res
+# runtime:92 ms
+# memory:14.4 MB

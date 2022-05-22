@@ -27,7 +27,7 @@
 #  root is a binary search tree. 
 #  1 <= val <= 10⁷ 
 #  
-#  Related Topics Tree Binary Search Tree Binary Tree 👍 3324 👎 151
+#  Related Topics Tree Binary Search Tree Binary Tree 👍 3350 👎 151
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -39,15 +39,5 @@
 #         self.right = right
 class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
-
-        stack = [root]
-        while stack:
-            node = stack.pop()
-            if node.val == val:
-                return node
-            if node.left and node.val > val:
-                stack.append(node.left)
-            if node.right and node.val < val:
-                stack.append(node.right)
-        return None
+        
 # leetcode submit region end(Prohibit modification and deletion)

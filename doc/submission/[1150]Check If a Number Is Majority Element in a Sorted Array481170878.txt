@@ -1,0 +1,41 @@
+class Solution:
+    def isMajorityElement(self, nums: List[int], target: int) -> bool:
+
+        #find first number smaller than target(A) and find first numbder larger than target(B)
+        ##of times target appers in A-B-1
+        
+        if(len(nums)) == 1:
+            return False
+        
+        left = 0
+        right = len(nums)-1
+        #find first number smaller than target
+        A=left-1
+        while left < right:
+            mid = (right-left)//2+left
+            if nums[mid] >= target:
+                right=mid-1
+            else:
+                A=mid
+                left = mid+1
+        
+        #A = left
+        
+        left = 0
+        right=len(nums)-1
+        B=right+1
+        while left < right:
+            mid = (right-left)//2+left
+            if nums[mid] <= target:
+                left=mid+1
+            else:
+                B=mid
+                right = mid-1
+        
+        Count = B-A-1
+        
+        if Count > len(nums)//2:
+            return True
+        return False
+# runtime:36 ms
+# memory:14.5 MB

@@ -29,8 +29,8 @@
 #  The number of nodes in the tree is in the range [0, 100]. 
 #  -100 <= Node.val <= 100 
 #  
-#  Related Topics Tree Depth-First Search Breadth-First Search Binary Tree 👍 82
-# 84 👎 112
+#  Related Topics Tree Depth-First Search Breadth-First Search Binary Tree 👍 83
+# 65 👎 112
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -42,15 +42,5 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-
-        if not root:
-            return root
-        stack = [root]
-        while stack:
-            node = stack.pop()
-            if node:
-                node.left, node.right = node.right, node.left
-                stack.append(node.right)
-                stack.append(node.left)
-        return root
+        
 # leetcode submit region end(Prohibit modification and deletion)

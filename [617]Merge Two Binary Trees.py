@@ -33,7 +33,7 @@
 #  -10⁴ <= Node.val <= 10⁴ 
 #  
 #  Related Topics Tree Depth-First Search Breadth-First Search Binary Tree 👍 65
-# 22 👎 243
+# 65 👎 243
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -45,30 +45,5 @@
 #         self.right = right
 class Solution:
     def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root1 and not root2:
-            return None
-
-        if not root1 and root2:
-            return root2
-
-        if not root2 and root1:
-            return root1
-
-        Newroot = root1
-
-        stack = [(root1, root2)]
-        while stack:
-            node1, node2 = stack.pop()
-            node1.val = node1.val+node2.val
-            if node1.left and node2.left:
-                stack.append((node1.left, node2.left))
-            elif not node1.left and node2.left:
-                node1.left = node2.left
-
-            if node1.right and node2.right:
-                stack.append((node1.right, node2.right))
-            elif not node1.right and node2.right:
-                node1.right = node2.right
-
-        return Newroot
+        
 # leetcode submit region end(Prohibit modification and deletion)

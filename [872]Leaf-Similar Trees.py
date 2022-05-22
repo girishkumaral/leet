@@ -35,7 +35,7 @@
 #  The number of nodes in each tree will be in the range [1, 200]. 
 #  Both of the given trees will have values in the range [0, 200]. 
 #  
-#  Related Topics Tree Depth-First Search Binary Tree 👍 1681 👎 55
+#  Related Topics Tree Depth-First Search Binary Tree 👍 1698 👎 55
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -47,34 +47,5 @@
 #         self.right = right
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
-
-        def getNextInorderLeaf(stack):
-            while stack:
-                node = stack.pop()
-                if node == -1:
-                    node = stack.pop()
-                    if node.right:
-                        stack.append(node.right)
-                elif not node.left and not node.right:
-                    return node
-                else:
-                    stack.append(node)
-                    stack.append(-1)
-                    if node.left:
-                        stack.append(node.left)
-            return None
-
-        stack1 = [root1]
-        stack2 = [root2]
-        while True:
-            leaf1 = getNextInorderLeaf(stack1)
-            leaf2 = getNextInorderLeaf(stack2)
-            if not leaf1 and not leaf2:
-                return True
-
-            if (leaf1 and not leaf2) or (leaf2 and not leaf1):
-                return False
-
-            if leaf1.val != leaf2.val:
-                return False
+        
 # leetcode submit region end(Prohibit modification and deletion)

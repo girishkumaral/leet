@@ -1,0 +1,24 @@
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        i = 0
+        split = 0
+        while i < len(s):
+            current = s[i]
+            num = 1
+            i += 1
+            other = 0
+            while i < len(s) and s[i] == current:
+                num += 1
+                i += 1
+            while i < len(s) and s[i] != current and other < num:
+                other += 1
+                i += 1
+            if other == num:
+                split += 1
+        return split
+
+# total_testcases:40
+# total_correct:15
+# input_formatted:"\"RRLRRLRLLLRL\""
+# expected_output:2
+# code_output:1

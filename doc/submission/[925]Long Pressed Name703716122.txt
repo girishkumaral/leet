@@ -1,0 +1,24 @@
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        j = 0
+        i = 0
+        while i < len(typed):
+            if typed[i] != name[j] or j > len(name)-1:
+                return False
+            if i+1 < len(typed) and typed[i+1] == typed[i]:
+                if j + 1 < len(name) and name[j+1] != name[j]:
+                    i += 1
+            j += 1
+            i += 1
+        if i == len(typed) and j == len(name):
+            return True
+        return False
+
+# runtime_error:IndexError: string index out of range
+    if typed[i] != name[j] or j > len(name)-1:
+Line 6 in isLongPressedName (Solution.py)
+    ret = Solution().isLongPressedName(param_1, param_2)
+Line 40 in _driver (Solution.py)
+    _driver()
+Line 51 in <module> (Solution.py)
+# last_testcase:"vtkgn" "vttkgnn"

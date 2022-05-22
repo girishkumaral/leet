@@ -25,7 +25,7 @@
 #  0 <= Node.val <= 1000 
 #  
 #  Related Topics Stack Tree Depth-First Search Binary Search Tree Binary Tree ?
-# ? 3209 👎 629
+# ? 3231 👎 628
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -37,25 +37,5 @@
 #         self.right = right
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        stack = []
-        stack.append(root)
-        First = None
-        Tail = None
-        while stack:
-            node = stack.pop()
-            if node == -1:
-                node = stack.pop()
-                stack.append(node.right)
-                node.right = None
-                if not First:
-                    First = Tail = node
-                else:
-                    Tail.right = node
-                    Tail = node
-            elif node != None:
-                stack.append(node)
-                stack.append(-1)
-                stack.append(node.left)
-                node.left = None
-        return First
+        
 # leetcode submit region end(Prohibit modification and deletion)

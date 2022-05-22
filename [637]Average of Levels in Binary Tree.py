@@ -27,7 +27,7 @@
 #  -2³¹ <= Node.val <= 2³¹ - 1 
 #  
 #  Related Topics Tree Depth-First Search Breadth-First Search Binary Tree 👍 29
-# 76 👎 236
+# 95 👎 237
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -37,26 +37,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from collections import deque
-
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
-        queue = deque()
-        queue.append(root)
-        average=[]
-
-        while queue:
-            levelLen = len(queue)
-            levelSum = 0
-            idx = 0
-            while idx < levelLen:
-                idx += 1
-                node = queue.popleft()
-                levelSum += node.val
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-            average.append(levelSum/levelLen)
-        return average
+        
 # leetcode submit region end(Prohibit modification and deletion)

@@ -1,0 +1,21 @@
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        j = 0
+        i = 0
+        while i < len(typed) and j < len(name):
+            if typed[i] != name[j] or j > len(name)-1:
+                return False
+            if i+1 < len(typed) and typed[i+1] == typed[i]:
+                if (j + 1 < len(name) and name[j+1] != name[j]) or j == len(name)-1:
+                    i += 1
+            j += 1
+            i += 1
+        if i == len(typed) and j == len(name):
+            return True
+        return False
+
+# total_testcases:94
+# total_correct:72
+# input_formatted:"\"a\",\"aaaaaaaaaaaaaaaaa\""
+# expected_output:true
+# code_output:false

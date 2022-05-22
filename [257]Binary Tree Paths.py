@@ -24,8 +24,8 @@
 #  The number of nodes in the tree is in the range [1, 100]. 
 #  -100 <= Node.val <= 100 
 #  
-#  Related Topics String Backtracking Tree Depth-First Search Binary Tree 👍 405
-# 5 👎 184
+#  Related Topics String Backtracking Tree Depth-First Search Binary Tree 👍 408
+# 1 👎 184
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -37,17 +37,5 @@
 #         self.right = right
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
-
-        s = [(root, str(root.val))]
-        paths = []
-        while s:
-            node, path = s.pop()
-            if not node.left and not node.right:
-                paths.append(path)
-            if node.left:
-                s.append((node.left, path + "->" + str(node.left.val)))
-            if node.right:
-                s.append((node.right, path + "->" + str(node.right.val)))
-        return paths
+        
 # leetcode submit region end(Prohibit modification and deletion)
-

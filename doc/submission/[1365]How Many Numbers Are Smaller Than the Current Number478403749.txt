@@ -1,0 +1,19 @@
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        res=[0 for _ in range(len(nums))]
+        Maxheap = []
+        num2Cnt=defaultdict(lambda:0)
+        for i, num in enumerate(nums):
+            heapq.heappush(Maxheap, (-num, i))
+            num2Cnt[num]+=1
+        
+        while Maxheap:
+            num , j = heapq.heappop(Maxheap)
+            Len = len(Maxheap)
+            res[j] = Len-num2Cnt[-num]+1
+            while Maxheap and Maxheap[0][0] == num:
+                x, i = heapq.heappop(Maxheap)
+                res[i] = res[j]
+        return res
+# runtime:52 ms
+# memory:14.4 MB

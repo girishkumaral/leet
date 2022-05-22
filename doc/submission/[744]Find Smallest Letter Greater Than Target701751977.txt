@@ -1,0 +1,14 @@
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        gtLetter = None
+        for letter in letters:
+            if not gtLetter and ord(letter) > ord(target):
+                gtLetter = letter
+            elif ord(letter) > ord(target) and ord(letter) < ord(gtLetter):
+                gtLetter = letter
+        if gtLetter is None:
+            gtLetter = letters[0]
+        return gtLetter
+
+# runtime:245 ms
+# memory:14.4 MB

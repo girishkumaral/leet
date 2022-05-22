@@ -33,7 +33,7 @@
 # 
 #  
 #  Follow up: Recursive solution is trivial, could you do it iteratively? 
-#  Related Topics Stack Tree Depth-First Search Binary Tree 👍 4062 👎 129
+#  Related Topics Stack Tree Depth-First Search Binary Tree 👍 4105 👎 130
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -45,13 +45,5 @@
 #         self.right = right
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        stack = [root]
-        preorder = []
-        while stack:
-            node = stack.pop()
-            if node:
-                preorder.append(node.val)
-                stack.append(node.right)
-                stack.append(node.left)
-        return preorder
+        
 # leetcode submit region end(Prohibit modification and deletion)

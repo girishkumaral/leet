@@ -51,7 +51,7 @@
 #  The number of nodes in the tree is in the range [0, 10⁴]. 
 #  -1000 <= Node.val <= 1000 
 #  
-#  Related Topics Tree Depth-First Search Binary Tree 👍 1621 👎 1920
+#  Related Topics Tree Depth-First Search Binary Tree 👍 1630 👎 1924
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -61,23 +61,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-from collections import defaultdict
 class Solution:
     def findTilt(self, root: Optional[TreeNode]) -> int:
-        d = defaultdict(lambda: 0)
-        tiltsum = 0
-        s = [root]
-        while s:
-            node = s.pop()
-            if node == -1:
-                node = s.pop()
-                tiltsum += abs(d[node.left]-d[node.right])
-                d[node] = d[node.left]+d[node.right]+node.val
-            elif node:
-                s.append(node)
-                s.append(-1)
-                s.append(node.right)
-                s.append(node.left)
-        return tiltsum
+        
 # leetcode submit region end(Prohibit modification and deletion)

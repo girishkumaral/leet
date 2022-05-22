@@ -32,7 +32,7 @@
 #  The number of nodes in the tree is in the range [1, 10⁴]. 
 #  -1000 <= Node.val <= 1000 
 #  
-#  Related Topics String Tree Depth-First Search Binary Tree 👍 1353 👎 1738
+#  Related Topics String Tree Depth-First Search Binary Tree 👍 1369 👎 1743
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -44,5 +44,27 @@
 #         self.right = right
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
+        stack = [root]
+        final = []
+        while stack:
+            node = stack.pop()
+            if node == -1:
+                node = stack.pop()
+                if stack:
+                    final.append(")")
+            else:
+                if stack:
+                    final.append("(")
+                final.append(str(node.val))
+                stack.append(node)
+                stack.append(-1)
+                if node.right:
+                    stack.append(node.right)
+                if node.left:
+                    stack.append(node.left)
+                if node.right and not node.left:
+                    final.append("()")
+        return "".join(final)
+
 
 # leetcode submit region end(Prohibit modification and deletion)

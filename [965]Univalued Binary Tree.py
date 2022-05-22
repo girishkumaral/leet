@@ -26,7 +26,7 @@
 #  0 <= Node.val < 100 
 #  
 #  Related Topics Tree Depth-First Search Breadth-First Search Binary Tree 👍 12
-# 89 👎 56
+# 95 👎 56
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -38,16 +38,5 @@
 #         self.right = right
 class Solution:
     def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
-        val = root.val
-        s = list()
-        s.append(root.left)
-        s.append(root.right)
-        while s:
-            node = s.pop()
-            if node:
-                if node.val != val:
-                    return False
-                s.append(node.left)
-                s.append(node.right)
-        return True
+        
 # leetcode submit region end(Prohibit modification and deletion)

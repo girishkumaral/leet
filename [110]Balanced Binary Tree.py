@@ -36,7 +36,7 @@
 #  The number of nodes in the tree is in the range [0, 5000]. 
 #  -10⁴ <= Node.val <= 10⁴ 
 #  
-#  Related Topics Tree Depth-First Search Binary Tree 👍 5763 👎 319
+#  Related Topics Tree Depth-First Search Binary Tree 👍 5838 👎 320
 
 
 # leetcode submit region begin(Prohibit modification and deletion)
@@ -48,18 +48,5 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-
-        def isheightBalanced(node):
-            if not node:
-                return True, 0
-
-            lb, hl = isheightBalanced(node.left)
-            rb, hr = isheightBalanced(node.right)
-
-            if abs(hl-hr) > 1 or (lb and not rb) or (rb and not lb) or (not lb and not rb):
-                return False, 1+max(hl, hr)
-            return True, 1+max(hl, hr)
-
-        hb, h = isheightBalanced(root)
-        return hb
+        
 # leetcode submit region end(Prohibit modification and deletion)
